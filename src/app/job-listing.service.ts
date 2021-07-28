@@ -44,6 +44,7 @@ export class JobListingService {
   onFilterJobList() {
 
     this.filteredJobList.next(this.jobList.filter((job) => {
+      console.log(this.filterLevel(job))
       return (this.filterLanguage(job) && this.filterLevel(job) && this.filterRole(job) && this.filterTools(job))
     }))
 
@@ -54,45 +55,45 @@ export class JobListingService {
 
   filterLanguage(job: Job): boolean {
     let isLanguage = true;
+    if (this.toolsFilter.length > 0) {
+      this.languageFilter?.forEach((filter) => {
+        if (job.languages?.includes(filter) === false) {
+          isLanguage = false
+        }
+      })
+    }
 
-    this.languageFilter?.forEach((filter) => {
-      if (job.languages?.includes(filter) === false) {
-        isLanguage = false
-
-      }
-    })
     return isLanguage
   }
   filterLevel(job: Job): boolean {
     let isLevel = true;
-
-    if (job.level !== this.levelFilter) {
-      isLevel = false
+    if (this.levelFilter !== undefined) {
+      if (job.level !== this.levelFilter) {
+        isLevel = false
+      }
     }
-    if ((this.levelFilter === null || this.levelFilter === undefined)) {
-      isLevel = true
-    }
-
     return isLevel
   }
   filterRole(job: Job): boolean {
     let isRole = true;
-    if (job.role !== this.roleFilter) {
-      isRole = false
-    }
-    if ((this.roleFilter === null || this.roleFilter === undefined)) {
-      isRole = true
+    if (this.roleFilter !== undefined) {
+      if (job.role !== this.roleFilter) {
+        isRole = false
+      }
     }
     return isRole
   }
 
   filterTools(job: Job): boolean {
     let isTool = true;
-    this.toolsFilter?.forEach(filter => {
-      if (job.tools?.includes(filter) === false) {
-        isTool = false
-      }
-    })
+    if (this.toolsFilter.length > 0) {
+      this.toolsFilter?.forEach(filter => {
+        if (job.tools?.includes(filter) === false) {
+          isTool = false
+        }
+      })
+    }
+
     return isTool;
   }
 
@@ -126,6 +127,29 @@ export class JobListingService {
       this.roleFilter = undefined;
     }
 
+    if (category === "tools") {
+      let index = this.toolsFilter.indexOf(filter)
+      if (index !== -1) {
+        this.toolsFilter.splice(index, 1);
+      }
+    }
+
+    if (category === "languages") {
+      let index = this.languageFilter.indexOf(filter)
+      if (index !== -1) {
+        this.languageFilter.splice(index, 1);
+      }
+    }
+
+    this.filterObject.next({ languages: this.languageFilter, tools: this.toolsFilter, level: this.levelFilter, role: this.roleFilter })
+    this.onFilterJobList()
+  }
+
+  clearFilter() {
+    this.languageFilter = [];
+    this.toolsFilter = [];
+    this.levelFilter = undefined;
+    this.roleFilter = undefined;
     this.filterObject.next({ languages: this.languageFilter, tools: this.toolsFilter, level: this.levelFilter, role: this.roleFilter })
     this.onFilterJobList()
   }

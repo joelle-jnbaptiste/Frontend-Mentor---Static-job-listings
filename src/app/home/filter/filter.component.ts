@@ -15,11 +15,13 @@ export class FilterComponent implements OnInit {
   ngOnInit(): void {
     this.jobListingService.filterObject.subscribe(filter =>{
       this.filter = filter;
-      console.log(filter)
     })
   }
 
   removeFilter(category: string, filter ){
     this.jobListingService.removeFilter(category, filter);
+  }
+  clearFilter(){
+    this.jobListingService.clearFilter();
   }
 }
