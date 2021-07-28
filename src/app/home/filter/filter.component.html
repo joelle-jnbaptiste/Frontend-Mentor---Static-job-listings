@@ -1,0 +1,25 @@
+<div>
+    <div>
+        <div *ngIf="filter.level">
+            <span>{{filter.level}}</span>
+            <button  (click)="removeFilter('level',filter.level)"></button>
+        </div>
+        <div *ngIf="filter.role">
+            <span>{{filter.role}}</span>
+            <button (click)="removeFilter('role',filter.role)"></button>
+        </div>
+        <div *ngIf="filter.tools">
+            <div *ngFor="let tool of filter.tools">
+               <span>{{tool}}</span>
+            <button (click)="removeFilter('tools',tool)"></button> 
+            </div>
+        </div>
+        <div *ngIf="filter.languages">
+            <div *ngFor="let language of filter.languages">
+               <span>{{language}}</span>
+            <button (click)="removeFilter('languages',language)"></button> 
+            </div>
+        </div>
+        
+    </div>
+</div>
