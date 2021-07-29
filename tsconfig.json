@@ -14,7 +14,7 @@
     "typeRoots": [
       "node_modules/@types"
     ],
-    "types": ["resize-observer-browser"],
+    "types": ["node"],
     "lib": [
       "es2018",
       "dom"
