@@ -61,13 +61,11 @@ body {
                     gap: 16px;
                     .cat {
                         display: flex;
+                        flex-wrap: wrap;
                         gap: 16px;
                     }
                     .tag {
-                        display: flex;
-
-                        flex-wrap: wrap;
-
+                        display: flex; 
                         border-radius: 4px;
                         background-color: $primary-light;
                         width: fit-content;

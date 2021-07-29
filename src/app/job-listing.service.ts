@@ -27,7 +27,7 @@ export class JobListingService {
 
   getJobList(): Observable<Job[]> {
     return this.http
-      .get('../../assets/data.json')
+      .get('https://joelle-jnbaptiste.github.io/Frontend-Mentor---Static-job-listings/assets/data.json')
       .pipe(
         map((res) => <Job[]>res))
       ;
@@ -54,7 +54,7 @@ export class JobListingService {
       this.isFilterEmpty.next(true);
     }
 
-    
+
   }
 
   filterLanguage(job: Job): boolean {
