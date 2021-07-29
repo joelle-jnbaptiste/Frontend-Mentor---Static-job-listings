@@ -1,27 +1,53 @@
-# StaticJobListings
+# Frontend Mentor - Static job listings
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.2.11.
+This is a solution to the [Job listings with filtering challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/job-listings-with-filtering-ivstIPCt). Frontend Mentor challenges help you improve your coding skills by building realistic projects.
+cap
+## Table of contents
 
-## Development server
+- [Overview](#overview)
+  - [The challenge](#the-challenge)
+  - [Screenshot](#screenshot)
+  - [Links](#links)
+- [My process](#my-process)
+  - [Built with](#built-with)
+- [Author](#author)
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+## Overview
 
-## Code scaffolding
+### The challenge
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Users should be able to:
 
-## Build
+- View the optimal layout for the site depending on their device's screen size
+- See hover states for all interactive elements on the page
+- Filter job listings based on the categories
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
 
-## Running unit tests
+### Screenshot
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+![](https://imgur.com/JMBtspI.png)
+![](https://imgur.com/c1v4T3e.png)
+![](https://imgur.com/Khc7Nhu.png)
+![](https://imgur.com/1XMk6dv.png)
 
-## Running end-to-end tests
+### Links
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+- Solution URL: [Add solution URL here](https://your-solution-url.com)
+- Live Site URL: [Add live site URL here](https://joelle-jnbaptiste.github.io/Frontend-Mentor---Static-job-listings/)
 
-## Further help
+## My process
+I used Angular to build my site I began with the logic, making the filter with the help of a service, and then I procceded to SASS.
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+### Built with
+
+- [Angular CLI](https://github.com/angular/angular-cli) version 11.2.11.
+- Semantic HTML5 markup
+- SCSS custom properties
+- Flexbox
+- CSS Grid
+- Mobile-first workflow
+
+## Author
+
+- Frontend Mentor - [@joelle-jnbaptiste](https://www.frontendmentor.io/profile/joelle-jnbaptiste)
+
