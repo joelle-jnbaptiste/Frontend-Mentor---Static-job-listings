@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { JobListingService } from 'src/app/job-listing.service';
 import { Filter } from './filter.model';
 
@@ -12,9 +12,19 @@ export class FilterComponent implements OnInit {
   constructor(private jobListingService: JobListingService) { }
 
   filter: Filter = new Filter();
+  isFilterEmpty: boolean = true;
+  @ViewChild('content') elementView: ElementRef;
+
+
   ngOnInit(): void {
     this.jobListingService.filterObject.subscribe(filter =>{
       this.filter = filter;
+
+
+    })
+    this.jobListingService.isFilterEmpty.subscribe(isEmpty => {
+      this.isFilterEmpty = isEmpty;
+ 
     })
   }
 
@@ -24,4 +34,6 @@ export class FilterComponent implements OnInit {
   clearFilter(){
     this.jobListingService.clearFilter();
   }
+
+
 }

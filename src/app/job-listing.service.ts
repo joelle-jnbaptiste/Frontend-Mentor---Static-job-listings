@@ -23,6 +23,7 @@ export class JobListingService {
 
   filteredJobList: BehaviorSubject<Array<Job> | undefined> = new BehaviorSubject(undefined);
   filterObject: BehaviorSubject<Filter> = new BehaviorSubject({ languages: this.languageFilter, tools: this.toolsFilter, level: this.levelFilter, role: this.roleFilter });
+  isFilterEmpty: BehaviorSubject<boolean> | undefined = new BehaviorSubject(true);
 
   getJobList(): Observable<Job[]> {
     return this.http
@@ -44,13 +45,16 @@ export class JobListingService {
   onFilterJobList() {
 
     this.filteredJobList.next(this.jobList.filter((job) => {
-      console.log(this.filterLevel(job))
+      this.isFilterEmpty.next(false);
       return (this.filterLanguage(job) && this.filterLevel(job) && this.filterRole(job) && this.filterTools(job))
     }))
 
     if (this.languageFilter?.length === 0 && this.toolsFilter?.length === 0 && this.roleFilter === undefined && this.levelFilter === undefined) {
       this.filteredJobList.next(this.jobList)
+      this.isFilterEmpty.next(true);
     }
+
+    
   }
 
   filterLanguage(job: Job): boolean {
@@ -151,6 +155,7 @@ export class JobListingService {
     this.levelFilter = undefined;
     this.roleFilter = undefined;
     this.filterObject.next({ languages: this.languageFilter, tools: this.toolsFilter, level: this.levelFilter, role: this.roleFilter })
+    this.isFilterEmpty.next(false);
     this.onFilterJobList()
   }
 }

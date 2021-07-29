@@ -1,39 +1,41 @@
-<div class="card">
+<div class="card" [ngClass]="{'featured': job.featured}">
     <div class="top-part">
         <div class="top-part__right">
             <img src="{{'../../assets' + job.logo}}" alt="">
-
         </div>
         <div class="top-part__left">
             <div class="general">
                 <p>{{job.company}}</p>
-                <span *ngIf="job.new">New</span>
-                <span *ngIf="job.featured">Featured</span>
+                <div>
+                    <span *ngIf="job.new" class="new">New!</span>
+                    <span *ngIf="job.featured" class="featured">Featured</span>
+                </div>
+
             </div>
             <div class="title">
                 <p>
                     {{job.position}} </p>
             </div>
             <div class="details">
-                <p class="date">{{job.postedAt}}</p>
-                <p class="contract">{{job.contract}}</p>
-                <p class="location">{{job.location}}</p>
+                <p>{{job.postedAt}}</p>
+                <p>{{job.contract}}</p>
+                <p>{{job.location}}</p>
             </div>
         </div>
     </div>
     <hr>
     <div class="bottom-part">
-        <span class="tag" *ngFor="let item of job.languages" (click)="onClickTag('languages', item)">
-            <p>{{item}}</p>
-        </span>
-        <span class="tag" (click)="onClickTag('level', job.level)">
-            <p>{{job.level}}</p>
-        </span>
-        <span class="tag" (click)="onClickTag('role', job.role)">
-            <p>{{job.role}}</p>
-        </span>
-        <span class="tag" *ngFor="let item of job.tools" (click)="onClickTag('tools', item)">
-            <p>{{item}}</p>
-        </span>
+        <button  *ngFor="let item of job.languages" (click)="onClickTag('languages', item)">
+           {{item}}
+        </button>
+        <button  (click)="onClickTag('level', job.level)">
+            {{job.level}}
+        </button>
+        <button  (click)="onClickTag('role', job.role)">
+           {{job.role}}
+        </button>
+        <button  *ngFor="let item of job.tools" (click)="onClickTag('tools', item)">
+           {{item}}
+        </button>
     </div>
 </div>

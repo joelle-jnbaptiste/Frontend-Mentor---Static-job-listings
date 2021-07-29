@@ -1,9 +1,322 @@
 /* You can add global styles to this file, and also import other style files */
 
+$primay: #5ca5a5;
+$background: #effafa;
+$card-background: #fff;
+$secondary: #2b3939;
+$secondary-light: #7c8f8f;
+$hr: #b7c4c4;
+$primary-light: #eff6f6;
 html {
     font-size: 0.625em;
 }
 body {
     margin: 0 auto;
     font-size: 1.6rem;
-    font-family: 'Spartan', sans-serif;}
+    font-family: "Spartan", sans-serif;
+}
+.home {
+    background-color: $background;
+    .attribution {
+        padding-bottom: 2rem;
+        font-size: 1.2rem;
+        text-align: center;
+        color: $secondary;
+        a {
+            text-decoration: none;
+            color: $secondary;
+        }
+    }
+
+    .header {
+        background-color: $primay;
+        background-image: url(assets/images/bg-header-mobile.svg);
+        height: 156px;
+        width: 100%;
+        position: relative;
+        .filter-container {
+            width: 100%;
+            box-sizing: border-box;
+            display: flex;
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translate(-50%, -36px);
+            padding: 0 24px;
+            z-index: 10;
+            flex-direction: column;
+            .filter {
+                background-color: $card-background;
+                padding: 20px 24px 20px 19px;
+                border-radius: 5px;
+                box-shadow: 0px 15px 20px -5px rgba(13, 113, 130, 0.15);
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+
+                .tags {
+                    display: flex;
+
+                    flex-wrap: wrap;
+                    gap: 16px;
+                    .cat {
+                        display: flex;
+                        gap: 16px;
+                    }
+                    .tag {
+                        display: flex;
+
+                        flex-wrap: wrap;
+
+                        border-radius: 4px;
+                        background-color: $primary-light;
+                        width: fit-content;
+                        cursor: pointer;
+
+                        p {
+                            margin: 4px 8px;
+                            font-weight: 700;
+                            font-size: 1.3rem;
+                            line-height: 2.4rem;
+                            letter-spacing: -0.1px;
+                            color: $primay;
+                        }
+                        button {
+                            border: unset;
+                            background-color: $primay;
+                            height: 32px;
+                            width: 32px;
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                            border-radius: 0 4px 4px 0;
+                            cursor: pointer;
+                            &:hover {
+                                background-color: $secondary;
+                            }
+                        }
+                    }
+                }
+
+                .clear {
+                    font-weight: 700;
+                    font-size: 1.3rem;
+                    line-height: 2.4rem;
+                    letter-spacing: -0.1px;
+                    color: $secondary-light;
+                    p {
+                        margin: 0;
+                        cursor: pointer;
+                        &:hover {
+                            color: $primay;
+                            text-decoration: underline;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .card-container {
+        position: relative;
+
+        padding: 32px 24px 34px 24px;
+        display: flex;
+        flex-direction: column;
+        gap: 40px;
+        .card {
+            box-shadow: 0px 15px 20px -5px rgba(13, 113, 130, 0.15);
+            background-color: $card-background;
+            border-radius: 5px;
+            position: relative;
+            padding: 32px 24px 24px;
+            margin-top: 24px;
+            &.featured {
+                border-left: solid 5px $primay;
+            }
+
+            .top-part {
+                &__right {
+                    position: absolute;
+                    top: -24px;
+                    left: 24px;
+                    height: 48px;
+                    width: 48px;
+                    img {
+                        height: 100%;
+                        width: 100%;
+                    }
+                }
+
+                &__left {
+                    .general {
+                        display: flex;
+                        gap: 1.6rem;
+                        align-items: center;
+                        p {
+                            color: $primay;
+                            font-size: 1.3rem;
+                            font-weight: 700;
+                            line-height: 1.456rem;
+                            margin: 0;
+                        }
+                        div {
+                            display: flex;
+                            gap: 0.8rem;
+                            span {
+                                padding: 6px 8px 4px 8px;
+                                border-radius: 12px;
+                                font-weight: 700;
+                                font-size: 1.1rem;
+                                line-height: 1.4rem;
+                                letter-spacing: -0.08px;
+                                text-align: center;
+                                color: $card-background;
+                                text-transform: uppercase;
+                                &.new {
+                                    background-color: $primay;
+                                }
+                                &.featured {
+                                    background-color: $secondary;
+                                }
+                            }
+                        }
+                    }
+
+                    .title {
+                        p {
+                            margin: 8px 0;
+                            font-weight: 700;
+                            font-size: 1.5rem;
+                            line-height: 2.4rem;
+                            cursor: pointer;
+                            &:hover {
+                                color: $primay;
+                            }
+                        }
+                    }
+
+                    .details {
+                        display: flex;
+                        gap: 8px;
+                        p {
+                            margin: 0;
+                            color: $secondary-light;
+                            font-weight: 500;
+                            font-size: 1.3rem;
+                            line-height: 2.4rem;
+                            letter-spacing: -0.1rem;
+                            display: flex;
+                            align-items: center;
+                            gap: 8px;
+                            &:not(:last-child):after {
+                                content: "";
+                                display: block;
+                                width: 4px;
+                                height: 4px;
+                                border-radius: 100%;
+                                background-color: $secondary-light;
+                            }
+                        }
+                    }
+                }
+            }
+
+            hr {
+                margin: 16px 0;
+                background-color: $hr;
+            }
+            .bottom-part {
+                display: flex;
+                gap: 16px;
+                flex-wrap: wrap;
+                button {
+                    border: unset;
+                    padding: 0.4rem 0.8rem;
+                    background-color: $primary-light;
+                    border-radius: 4px;
+                    font-weight: 700;
+                    font-size: 1.3rem;
+                    line-height: 2.4rem;
+                    letter-spacing: -0.1px;
+                    color: $primay;
+                    cursor: pointer;
+                    &:hover {
+                        background-color: $primay;
+                        color: $card-background;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and (min-width: 670px) {
+    .home {
+        .header {
+            background-image: url(assets/images/bg-header-desktop.svg);
+            .filter-container {
+                padding: 0;
+                width: 95%;
+                max-width: 1110px;
+            }
+        }
+
+        .card-container {
+            margin: 0 auto;
+            padding: 76px 0 120px;
+            gap: 24px;
+            max-width: 1110px;
+            width: 95%;
+            .card {
+                margin: 0;
+                display: flex;
+                padding: 32px 40px;
+                justify-content: space-between;
+                .top-part {
+                    display: flex;
+                    gap: 24px;
+                    &__right {
+                        position: unset;
+                        height: 88px;
+                        width: 88px;
+                    }
+                    &__left {
+                        .general {
+                            p {
+                                font-size: 1.4rem;
+                                line-height: 1.568rem;
+                            }
+                        }
+                        .title {
+                            p {
+                                font-size: 1.8rem;
+                                line-height: 2.4rem;
+                            }
+                        }
+                        .details {
+                            gap: 16px;
+                            p {
+                                gap: 16px;
+                                font-size: 1.5rem;
+                                line-height: 2.4rem;
+                                letter-spacing: -0.12rem;
+                            }
+                        }
+                    }
+                }
+
+                hr {
+                    display: none;
+                }
+
+                .bottom-part {
+                    align-items: center;
+                    button {
+                        height: fit-content;
+                    }
+                }
+            }
+        }
+    }
+}

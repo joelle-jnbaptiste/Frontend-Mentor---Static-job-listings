@@ -1,28 +1,45 @@
-<div>
-    <div>
-        <div *ngIf="filter.level">
-            <span>{{filter.level}}</span>
-            <button  (click)="removeFilter('level',filter.level)"></button>
-        </div>
-        <div *ngIf="filter.role">
-            <span>{{filter.role}}</span>
-            <button (click)="removeFilter('role',filter.role)"></button>
-        </div>
-        <div *ngIf="filter.tools">
-            <div *ngFor="let tool of filter.tools">
-               <span>{{tool}}</span>
-            <button (click)="removeFilter('tools',tool)"></button> 
+<!-- <div *ngIf="!isFilterEmpty"> -->
+
+    <div class="filter" *ngIf="!isFilterEmpty">
+        <div class="tags">
+            <div class="tag" *ngIf="filter.level">
+
+                <p>{{filter.level}}</p>
+                <button (click)="removeFilter('level',filter.level)">
+                    <img src="././assets/images/icon-remove.svg" width="13.44" height="13.44" alt="">
+                </button>
+
             </div>
-        </div>
-        <div *ngIf="filter.languages">
-            <div *ngFor="let language of filter.languages">
-               <span>{{language}}</span>
-            <button (click)="removeFilter('languages',language)"></button> 
+
+            <div class="tag" *ngIf="filter.role">
+
+                <p>{{filter.role}}</p>
+                <button (click)="removeFilter('role',filter.role)"> <img src="././assets/images/icon-remove.svg"
+                        width="13.44" height="13.44" alt="">
+                </button>
+
             </div>
+
+            <div *ngIf="filter.tools.length !== 0" class="cat">
+                <div *ngFor="let tool of filter.tools" class="tag">
+                    <p>{{tool}}</p>
+                    <button (click)="removeFilter('tools',tool)"> <img src="././assets/images/icon-remove.svg"
+                            width="13.44" height="13.44" alt="">
+                    </button>
+                </div>
+            </div>
+            <div *ngIf="filter.languages.length !== 0" class="cat">
+                <div *ngFor="let language of filter.languages" class="tag">
+                    <p>{{language}}</p>
+                    <button (click)="removeFilter('languages',language)">
+                        <img src="././assets/images/icon-remove.svg" width="13.44" height="13.44" alt="">
+
+                    </button>
+                </div>
+            </div>
+
         </div>
-        
+        <div class="clear">
+            <p (click)="clearFilter()">Clear</p>
+        </div>
     </div>
-    <div>
-        <span (click)="clearFilter()">Clear</span>
-    </div>
-</div>

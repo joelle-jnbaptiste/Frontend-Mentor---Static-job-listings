@@ -3,5 +3,6 @@ export enum Tool {
     Sass = "Sass",
     Vue = "Vue",
     Django = "Django",
+    Ruby = "Ruby",
     RoR = "RoR"
 }
